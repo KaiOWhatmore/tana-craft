@@ -6,9 +6,9 @@ function NavBar() {
     const [isActive, setIsActive] = useState(false); 
 
     // add active class 
-    const toggleActiveClass = () => {
-        setIsActive(!isActive)
-    };
+    // const toggleActiveClass = () => {
+    //     setIsActive(!isActive)
+    // };
 
     // clean up function to remove the active class 
     const removeActive = () => { 
