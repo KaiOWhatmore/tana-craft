@@ -1,26 +1,30 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 
-export const Image = ({ css, skeleton = true, src, alt, ...props }) => {
+export const Image = ({ src, alt, skeleton = true, ...props }) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isSkeleton, setIsSkeleton] = useState(skeleton);
+  const [showSkeleton, setShowSkeleton] = useState(skeleton);
 
   return (
     <div
+      className={clsx("imageWrapper", { skeleton: showSkeleton })}
       style={{
         position: "relative",
-        inlineSize: "100%",
+        width: "100%",
         overflow: "hidden",
       }}
-      className={clsx({ skeleton: isSkeleton })}
     >
-      {/* Skeleton Loader */}
-      {isSkeleton && (
+      {/* Skeleton */}
+      {showSkeleton && (
         <div
+          className="skeleton"
           style={{
             position: "absolute",
-            inset: 0,
-            background: "var(--gray-4)",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "#f0f0f0",
             backgroundImage: `linear-gradient(
               90deg,
               rgba(255, 255, 255, 0) 0%,
@@ -34,29 +38,21 @@ export const Image = ({ css, skeleton = true, src, alt, ...props }) => {
       )}
 
       {/* Image */}
-      <div
-        style={{
-          transition: "opacity 200ms ease",
-          opacity: isLoaded ? 1 : 0,
-          ...css,
+      <img
+        src={src}
+        alt={alt}
+        onLoad={() => {
+          setIsLoaded(true);
+          setShowSkeleton(false);
         }}
-        data-loaded={isLoaded}
-        onTransitionEnd={(event) =>
-          event.propertyName === "opacity" && setIsSkeleton(false)
-        }
-      >
-        <img
-          src={src}
-          alt={alt}
-          style={{
-            display: "block",
-            width: "100%",
-            height: "auto",
-          }}
-          onLoad={() => setIsLoaded(true)}
-          {...props}
-        />
-      </div>
+        style={{
+          width: "100%",
+          height: "auto",
+          display: isLoaded ? "block" : "none",
+          transition: "opacity 0.5s ease-in-out",
+        }}
+        {...props}
+      />
     </div>
   );
 };

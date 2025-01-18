@@ -1,69 +1,57 @@
 import React, { useState, useEffect } from "react";
 import { storage, ref, getDownloadURL } from "./firebase";
 
-function ImageDisplay({ fileName }) {
+function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
   const [imageURL, setImageURL] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
-  const [dimensions, setDimensions] = useState(null);
+
+  // Calculate padding-top from the aspect ratio
+  const [width, height] = aspectRatio.split(":").map(Number);
+  const paddingTop = (height / width) * 100; // Convert aspect ratio to percentage
 
   useEffect(() => {
-    const preloadImage = async () => {
+    const fetchImage = async () => {
       try {
         const imageRef = ref(storage, `public/${fileName}`);
         const url = await getDownloadURL(imageRef);
-
-        // Use a native Image object to preload and get dimensions
-        const img = new Image();
-        img.src = url;
-        img.onload = () => {
-          setDimensions({ width: img.naturalWidth, height: img.naturalHeight });
-          setImageURL(url);
-        };
+        setImageURL(url);
       } catch (error) {
         console.error("Error fetching image:", error.message);
       }
     };
 
-    preloadImage();
+    fetchImage();
   }, [fileName]);
-
-  // Default aspect ratio (16:9) as a fallback
-  const defaultAspectRatio = 16 / 9;
-  const aspectRatio = dimensions
-    ? dimensions.width / dimensions.height
-    : defaultAspectRatio;
 
   return (
     <div
-      className="imageContainer"
       style={{
-        backgroundColor: "#f0f0f0", // Match the placeholder background color
-        width: "100%", // Span the full grid column width
-        paddingTop: `${100 / aspectRatio}%`, // Dynamically set the height using aspect ratio
-        position: "relative",
-        overflow: "hidden",
+        width: "100%",
+        height: 0, // Set height to 0
+        paddingTop: `${paddingTop}%`, // Maintain the aspect ratio
+        position: "relative", // Required for absolutely positioning the image
+        backgroundColor: "#f0f0f0", // Placeholder background
       }}
     >
       {imageURL && (
         <img
           src={imageURL}
           alt={fileName}
+          onLoad={() => setIsLoaded(true)}
           style={{
             position: "absolute",
             top: 0,
             left: 0,
             width: "100%",
             height: "100%",
-            objectFit: "cover", // Ensure it fills the container proportionally
+            objectFit: "cover",
             opacity: isLoaded ? 1 : 0,
             transition: "opacity 0.5s ease-in-out",
           }}
-          onLoad={() => setIsLoaded(true)}
         />
       )}
       {!isLoaded && (
         <div
-          className="imagePlaceholder"
           style={{
             position: "absolute",
             top: 0,

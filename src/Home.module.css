@@ -6,7 +6,6 @@
   justify-content: center;
   margin: 0 auto;
   margin-bottom: 20px;
-  /* padding: 20px; */
   max-width: 1200px;
   font-family: "Arial", sans-serif;
 }
@@ -18,7 +17,6 @@
   justify-content: center;
   text-align: center;
   width: 100%;
-  /* margin-bottom: 40px; */
 }
 
 .welcomeSection h1 {
@@ -30,7 +28,6 @@
 .contentSection {
   display: flex;
   flex-direction: column;
-  /* gap: 40px; */
   width: 100%;
 }
 
@@ -38,47 +35,22 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  /* Remove gap between columns and rows */
   width: 100%;
-  grid-auto-rows: auto;
 }
 
 .imageContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f0f0f0;
   width: 100%;
-  /* Ensure it spans the grid column */
-  margin: 0;
-  /* Remove any margin */
-  padding: 0;
-  /* Remove any padding */
+  position: relative;
 }
 
-.imageContainer img {
-  max-width: 100%;
-  /* Scale image properly */
-  height: auto;
-  /* Maintain aspect ratio */
-  display: block;
-  /* Prevent inline image spacing issues */
-}
-
-
-.imagePlaceholder {
-  font-size: 1rem;
-  color: #666;
-  text-align: center;
-}
 
 .textContainer {
   display: flex;
-  /* Make it a flex container */
   flex-direction: column;
-  /* Ensure text items are stacked vertically */
   justify-content: center;
-  /* Vertically align text to the center */
   text-align: left;
   padding: 40px;
 }
