@@ -1,49 +1,68 @@
-import {useState} from "react";
-import {Link} from "react-router-dom"; 
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import styles from "./Navbar.module.css"; // Import the CSS module
 
-function NavBar() { 
-    // adding states 
-    const [isActive, setIsActive] = useState(false); 
+function NavBar() {
+  // Adding states
+  const [isActive, setIsActive] = useState(false);
 
-    // add active class 
-    // const toggleActiveClass = () => {
-    //     setIsActive(!isActive)
-    // };
+  // Clean up function to remove the active class
+  const removeActive = () => {
+    setIsActive(false);
+  };
 
-    // clean up function to remove the active class 
-    const removeActive = () => { 
-        setIsActive(false);
-    }
+  return (
+    <nav className={styles.navbar}>
+      {/* Logo Section */}
+      <Link to="/" className={styles.navbarLogo} onClick={removeActive}>
+        TanaCraft
+      </Link>
 
-    return (
-        <nav className>
-            <Link to="/" className> 
-                Logo
-            </Link>
-            <ul>
-                <li onLClick={removeActive}>
-                    <Link to="/">
-                        Home
-                    </Link>
-                </li>
-                <li onLClick={removeActive}>
-                    <Link to="/furniture">
-                        furniture
-                    </Link>
-                </li>
-                <li onLClick={removeActive}>
-                    <Link to="/restoration">
-                        Restoration
-                    </Link>
-                </li>
-                <li onLClick={removeActive}>
-                    <Link to="/contact">
-                        Contact
-                    </Link>
-                </li>
-            </ul>
-        </nav>
-    )
+      {/* Navigation Links */}
+      <ul className={styles.navbarLinks}>
+        <li className={styles.navbarItem} onClick={removeActive}>
+          <Link
+            to="/"
+            className={`${styles.navbarLink} ${
+              isActive ? styles.activeLink : ""
+            }`}
+          >
+            Home
+          </Link>
+        </li>
+        <li className={styles.navbarItem} onClick={removeActive}>
+          <Link
+            to="/furniture"
+            className={`${styles.navbarLink} ${
+              isActive ? styles.activeLink : ""
+            }`}
+          >
+            Furniture
+          </Link>
+        </li>
+        <li className={styles.navbarItem} onClick={removeActive}>
+          <Link
+            to="/restoration"
+            className={`${styles.navbarLink} ${
+              isActive ? styles.activeLink : ""
+            }`}
+          >
+            Restoration
+          </Link>
+        </li>
+        <li className={styles.navbarItem} onClick={removeActive}>
+          <Link
+            to="/contact"
+            className={`${styles.navbarLink} ${
+              isActive ? styles.activeLink : ""
+            }`}
+          >
+            Contact
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  );
 }
 
 export default NavBar;

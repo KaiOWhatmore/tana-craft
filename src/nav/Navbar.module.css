@@ -1,0 +1,55 @@
+/* Navbar.module.css */
+.navbar {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    background-color: #2e2d2d;
+    position: relative;
+    padding: 0 20px;
+    height: 60px;
+}
+
+.navbarLogo {
+    position: absolute;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 0.1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.navbarLinks {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbarItem {
+    cursor: pointer;
+}
+
+.navbarLink {
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.navbarLink:hover {
+    background-color: #5a5a5a;
+    /* Hover effect */
+}
+
+.activeLink {
+    background-color: #3d3d3d;
+    /* Active link background */
+}
