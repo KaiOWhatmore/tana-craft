@@ -1,18 +1,21 @@
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY || process.env.firebase_config.env.firebase_api_key,
-    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN || process.env.firebase_config.env.firebase_auth_domain,
-    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID || process.env.firebase_config.env.firebase_project_id,
-    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET || process.env.firebase_config.env.firebase_storage_bucket,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID || process.env.firebase_config.env.firebase_messaging_sender_id,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID || process.env.firebase_config.env.firebase_app_id,
+    apiKey: "AIzaSyCkG_JDIImUL8XqItLREODGNdJKQ_O-v1g",
+    authDomain: "tana-craft-9adcf.firebaseapp.com",
+    projectId: "tana-craft-9adcf",
+    storageBucket: "tana-craft-9adcf.firebasestorage.app",
+    messagingSenderId: "62209140137",
+    appId: "1:62209140137:web:42340236ea8f13623090b8",
+    measurementId: "G-LES2QY1FD0"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const storage = getStorage(app);
-
-export { storage, auth, ref, getDownloadURL };
+const analytics = getAnalytics(app);
