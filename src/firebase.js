@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 const firebaseConfig = {
@@ -10,10 +11,8 @@ const firebaseConfig = {
     appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
-
-console.log("Firebase project key :", process.env.REACT_APP_FIREBASE_PROJECT_ID);
-
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 const storage = getStorage(app);
 
-export { storage, ref, getDownloadURL };
+export { storage, auth, ref, getDownloadURL };

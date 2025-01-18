@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Home.module.css";
+import ImageDisplay from "./ImageDisplay";
 
 function Home() {
   return (
@@ -8,23 +9,20 @@ function Home() {
       <section className={styles.welcomeSection}>
       </section>
 
-      {/* Images and Content Section */}
       <section className={styles.contentSection}>
-        {/* First Row: Image + Text */}
         <div className={styles.row}>
           <div className={styles.welcomeSection}>
             <h1>Welcome to Tana Craft.</h1>
           </div>
           <div className={styles.imageContainer}>
-            {/* Placeholder for Image 1 */}
-            <div className={styles.imagePlaceholder}>Image 1</div>
+          <ImageDisplay fileName="chopsticks-whittled.jpg" /> {/* Replace with the actual file path */}
+            {/* <div className={styles.imagePlaceholder}>Image 1</div> */}
           </div>
         </div>
 
         <div className={styles.row}>
           <div className={styles.imageContainer}>
-            {/* Placeholder for Image 1 */}
-            <div className={styles.imagePlaceholder}>Image 1</div>
+            <ImageDisplay fileName="saisho-table-home-banner.jpg" /> {/* Replace with the actual file path */}
           </div>
           <div className={styles.textContainer}>
             <h2>What We Do</h2>
