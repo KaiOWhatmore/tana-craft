@@ -1,4 +1,11 @@
 .navbar {
+    position: sticky;
+    top: 0;
+    /* Distance from the top of the viewport */
+    z-index: 1000;
+    /* Ensures it appears above other elements */
+    background-color: #2e2d2d;
+    /* Ensure background color covers content underneath */
     display: flex;
     align-items: center;
     /* Vertically centers all items */
@@ -13,16 +20,32 @@
     /* Allows absolute positioning for the logo */
 }
 
+
+
 .navbarLogo {
+    display: flex;
     position: absolute;
-    /* Moves the logo out of the flexbox flow */
     left: 30px;
-    /* Positions the logo to the left */
+    align-items: center;
+    /* Align logo and text vertically */
+    gap: 15px;
+    /* Spacing between logo and text */
     font-family: 'Arial', sans-serif;
+    /* Same font as the links */
     font-size: 1.5rem;
+    /* Same font size */
     font-weight: bold;
+    letter-spacing: 0.1rem;
     color: white;
     text-decoration: none;
+}
+
+.navbarLogo img {
+    width: 65px;
+    /* Adjust size to fit the text height */
+    height: 65px;
+    vertical-align: middle;
+    /* Align logo with text */
 }
 
 .navbarLinks {
@@ -36,9 +59,9 @@
 
 .navbarLink {
     font-family: 'Arial', sans-serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    letter-spacing: 0.05rem;
+    letter-spacing: 0.1rem;
     text-decoration: none;
     color: white;
     padding: 10px 45px;

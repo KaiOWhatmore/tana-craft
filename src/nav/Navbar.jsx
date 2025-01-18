@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css"; // Import the CSS module
+import Logo from '../assets/tana-craft-logo.svg'
 
 function NavBar() {
   // Adding states
@@ -15,6 +16,7 @@ function NavBar() {
     <nav className={styles.navbar}>
       {/* Logo Section */}
       <Link to="/" className={styles.navbarLogo} onClick={removeActive}>
+        <img src={Logo} alt="Logo"/>
         TanaCraft
       </Link>
 
