@@ -1,25 +1,22 @@
 .navbar {
     position: sticky;
+    /* Use sticky positioning */
     top: 0;
-    /* Distance from the top of the viewport */
+    /* Stick to the top of the viewport */
     z-index: 1000;
-    /* Ensures it appears above other elements */
+    /* Make sure it stays above other elements */
     background-color: #2e2d2d;
-    /* Ensure background color covers content underneath */
+    /* Ensure the navbar has a background */
     display: flex;
     align-items: center;
-    /* Vertically centers all items */
+    /* Vertically centers items */
     justify-content: center;
-    /* Center content horizontally */
-    background-color: #2e2d2d;
-    /* Dark background */
+    /* Center links horizontally */
     padding: 0 20px;
+    /* Adjust padding as needed */
     height: 80px;
-    /* Adjust the height as needed */
-    position: relative;
-    /* Allows absolute positioning for the logo */
+    /* Set a consistent height */
 }
-
 
 
 .navbarLogo {
@@ -53,8 +50,10 @@
     gap: 100px;
     /* Adds spacing between links */
     list-style: none;
+    padding-left: 100px;
+    /* Adds space to the right */
     margin: 0;
-    padding: 0;
+    /* padding: 0; */
 }
 
 .navbarLink {
