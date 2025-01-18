@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { storage, ref, getDownloadURL } from "../firebase";
 
-function ImageDisplay() {
+function ImageDisplay({ fileName }) {
   const [imageURL, setImageURL] = useState("");
 
   useEffect(() => {
-    // Reference to your Firebase Storage file
-    const imageRef = ref(storage, "your-image-file-name.jpg");
+    // Reference to the Firebase Storage file
+    const imageRef = ref(storage, fileName);
 
     // Get the URL for the image
     getDownloadURL(imageRef)
@@ -16,11 +16,15 @@ function ImageDisplay() {
       .catch((error) => {
         console.error("Error fetching image URL:", error);
       });
-  }, []);
+  }, [fileName]); // Dependency to re-run effect when fileName changes
 
   return (
     <div>
-      {imageURL ? <img src={imageURL} alt="Uploaded from Firebase" /> : <p>Loading...</p>}
+      {imageURL ? (
+        <img src={imageURL} alt={fileName} style={{ maxWidth: "100%" }} />
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }
