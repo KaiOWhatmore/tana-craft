@@ -1,0 +1,98 @@
+/* ContactForm.module.css */
+
+.container {
+    max-width: 33%;
+    margin: 0 auto;
+    margin-top: 3%;
+    /* padding: 20px; */
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.groupFirstName {
+    margin-right: 10px;
+
+}
+
+.groupLastName {
+    margin-left: 10px;
+}
+
+.groupEmail {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.groupPhone {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.groupMessage {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input,
+.textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* width: 100%; */
+}
+
+
+.textarea {
+    resize: none;
+}
+
+
+
+.success {
+    color: green;
+    margin: 10px 0;
+}
+
+.error {
+    color: red;
+    margin: 10px 0;
+}
+
+.submitButton {
+    background-color: #2e2d2d;
+    /* align-items: center; */
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 0px 0px 0px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.submitButton:hover {
+    background-color: #2e2d2d9d;
+}

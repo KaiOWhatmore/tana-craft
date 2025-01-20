@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css"; // Import the CSS module
-import Logo from '../assets/tana-craft-logo.svg'
+import Logo from './assets/tana-craft-logo.svg'
 
 function NavBar() {
   // Adding states

@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import NavBar from './nav/Navbar';
+import NavBar from './Navbar';
 import Home from './Home'
 import { Routes, Route } from 'react-router-dom';
+import ContactForm from './ContactForm';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<ContactForm />} />
           {/* Fallback Route */}
           <Route
             path="*"
