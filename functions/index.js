@@ -4,7 +4,7 @@ const nodemailer = require("nodemailer");
 const cors = require("cors"); // Import CORS middleware
 
 // Initialize CORS middleware
-const corsHandler = cors({ origin: true }); // Allow all origins (change this for specific domains)
+const corsHandler = cors({ origin: "https://www.tanacraft.com/contact" });
 
 exports.sendEmail = onRequest(
     { secrets: ["EMAIL_OUTLOOK_USER", "EMAIL_OUTLOOK_PASS"] }, // Declare secrets
