@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
-import classNames from "classnames"
+import classNames from "classnames";
 import styles from "./ContactForm.module.css"; // Import CSS module
 
 const ContactForm = () => {
@@ -20,7 +19,7 @@ const ContactForm = () => {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const { firstName, lastName, email, phone, message } = formValues;
@@ -30,35 +29,40 @@ const ContactForm = () => {
       return;
     }
 
-    emailjs
-      .send(
-        "your_service_id", // Replace with your EmailJS service ID
-        "your_template_id", // Replace with your EmailJS template ID
-        {
-          first_name: firstName,
-          last_name: lastName,
+    try {
+      // Replace with your Firebase Function URL
+      const functionUrl =
+        "https://us-central1-tana-craft-9adcf.cloudfunctions.net/sendEmail";
+
+      const response = await fetch(functionUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName,
+          lastName,
           email,
           phone,
           message,
-        },
-        "your_user_id" // Replace with your EmailJS user ID
-      )
-      .then(
-        () => {
-          setSuccessMessage("Message sent successfully!");
-          setErrorMessage("");
-          setFormValues({
-            firstName: "",
-            lastName: "",
-            email: "",
-            phone: "",
-            message: "",
-          });
-        },
-        () => {
-          setErrorMessage("Failed to send message. Please try again.");
-        }
-      );
+        }),
+      });
+
+      if (response.ok) {
+        setSuccessMessage("Message sent successfully!");
+        setErrorMessage("");
+        setFormValues({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setErrorMessage("Failed to send message. Please try again.");
+    }
   };
 
   return (
@@ -66,7 +70,7 @@ const ContactForm = () => {
       <h2 className={styles.header}>Contact us - We'd love to hear from you</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.row}>
-        <div className={classNames(styles.group, styles.groupFirstName)}>
+          <div className={classNames(styles.group, styles.groupFirstName)}>
             <label className={styles.label}>First name</label>
             <input
               type="text"

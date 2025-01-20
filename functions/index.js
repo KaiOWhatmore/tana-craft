@@ -1,19 +1,34 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
-
-const {onRequest} = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
+const { onRequest } = require("firebase-functions/v2/https");
+const nodemailer = require("nodemailer");
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+exports.sendEmail = onRequest(
+    { secrets: ["EMAIL_OUTLOOK_USER", "EMAIL_OUTLOOK_PASS"] }, // Declare secrets
+    (req, res) => {
+        const emailUser = process.env.EMAIL_OUTLOOK_USER; // Access the secret value
+        const emailPass = process.env.EMAIL_OUTLOOK_PASS;
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+        const transporter = nodemailer.createTransport({
+            service: "Outlook",
+            auth: {
+                user: emailUser,
+                pass: emailPass,
+            },
+        });
+
+        const { to, subject, text } = req.body;
+
+        transporter
+            .sendMail({
+                from: emailUser,
+                to,
+                subject,
+                text,
+            })
+            .then(() => res.status(200).send("Email sent successfully!"))
+            .catch((error) => {
+                console.error("Error sending email:", error);
+                res.status(500).send("Failed to send email");
+            });
+    }
+);
