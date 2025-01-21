@@ -30,7 +30,7 @@ function Home() {
             </p>
             <p>
               Like what you see?{" "}
-              <a href="/portfolio" className={styles.link}>
+              <a href="/furniture" className={styles.link}>
                 Click here for our portfolio of work
               </a>
             </p>

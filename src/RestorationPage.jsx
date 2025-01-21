@@ -7,7 +7,7 @@ const RestorationPage = () => {
   return (
     <div className={styles.container}>
       {/* Moderna Coffee Table */}
-      <div className={styles.row}>
+      <div  className={styles.row}>
         <div className={styles.textColumn}>
           <h2 className={styles.title}>Vintage Rota 3 Tier Tool Box</h2>
           <p className={styles.description}>
