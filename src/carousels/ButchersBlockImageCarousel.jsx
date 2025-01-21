@@ -8,7 +8,7 @@ const responsive = {
 };
 
 
-const FloatingBookshelfImageCarousel = ({ image, aspectRatio = "4:3" }) => {
+const ButchersBlockImageCarousel = ({ image, aspectRatio = "4:3" }) => {
   return (
     <div
       style={{
@@ -44,4 +44,4 @@ const FloatingBookshelfImageCarousel = ({ image, aspectRatio = "4:3" }) => {
   );
 };
 
-export default FloatingBookshelfImageCarousel;
+export default ButchersBlockImageCarousel;

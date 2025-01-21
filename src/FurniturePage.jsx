@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "./FurniturePage.module.css";
-import ModernaImageCarousel from "./carousels/ModernaImageCarousel";
+import ModernaImageCarousel from "./carousels/ModernaImageImageCarousel";
 import FloatingBookshelfImageCarousel from "./carousels/FloatingBookshelfImageCarousel";
 import ButchersBlockImageCarousel from "./carousels/ButchersBlockImageCarousel";
+import VanDrawersImageCarousel from "./carousels/ButchersBlockImageCarousel"
 
 const FurniturePage = () => {
   return (
@@ -58,7 +59,7 @@ const FurniturePage = () => {
           </p>
         </div>
         <div className={styles.carouselColumn}>
-          <ButchersBlockImageCarousel aspectRatio={"4:3"} />
+          <VanDrawersImageCarousel  />
         </div>
       </div>
     </div>
