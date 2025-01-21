@@ -20,7 +20,7 @@ function Home() {
 
         <div className={styles.row}>
           <div className={styles.imageContainer}>
-            <ImageDisplay fileName="saisho-table-home-banner.jpg" aspectRatio="4:3"/> 
+            <ImageDisplay fileName="moderna_x_saisho-table-home-banner.jpg" aspectRatio="4:3"/> 
           </div>
           <div className={styles.textContainer}>
             <h2>What We Do</h2>
