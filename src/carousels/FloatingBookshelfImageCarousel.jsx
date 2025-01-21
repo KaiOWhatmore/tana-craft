@@ -7,6 +7,7 @@ const responsive = {
   allDevices: { breakpoint: { max: 4000, min: 0 }, items: 1 },
 };
 
+// TODO --> refactor to use abstracted ImageCarousel
 
 const FloatingBookshelfImageCarousel = ({ image, aspectRatio = "4:3" }) => {
   return (

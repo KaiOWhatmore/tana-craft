@@ -13,16 +13,13 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
         height: 0,
         paddingTop: `${paddingTop}%`,
         position: "relative",
-        backgroundColor: "#f0f0f0",
+        backgroundColor: "#f0f0f0", // Placeholder background
       }}
     >
       <img
-        src={`/images/${fileName}`} // Use relative path
+        src={`/images/${fileName}`}
         alt={fileName}
-        onLoad={() => {
-          console.log("Image loaded:", fileName); // Debugging log
-          setIsLoaded(true); // Mark image as loaded
-        }}        
+        onLoad={() => setIsLoaded(true)}
         style={{
           position: "absolute",
           top: 0,
@@ -35,17 +32,18 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
         }}
       />
       {!isLoaded && (
-        <div
+        <div 
           style={{
             position: "absolute",
             top: 0,
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundColor: "#e0e0e0",
+            backgroundColor: "#e0e0e0", // Loading placeholder
           }}
-        ></div>
+        />
       )}
+      <p>Loading...</p>
     </div>
   );
 }
