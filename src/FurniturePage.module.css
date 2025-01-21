@@ -1,25 +1,52 @@
-.carousel-container {
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.row {
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+.carouselColumn {
+    flex: 1;
+    /* max-width: 600px; */
+    /* Match max-width to ImageCarousel */
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    /* Prevent content spill */
 }
 
-.carousel-item {
+.textColumn {
+    flex: 1;
     display: flex;
+    flex-direction: column;
+    /* Arrange text elements vertically */
+    justify-content: center;
+    /* Vertically center content */
+    padding: 20px;
+    /* Add spacing around the text */
+}
+
+.title {
     justify-content: center;
     align-items: center;
-    width: 100%;
-    /* Ensure each slide takes full container width */
-}
 
-.carousel-item img {
-    width: 100%;
-    /* Ensure image fills the slide width */
-    height: auto;
-    /* Maintain aspect ratio */
-    object-fit: cover;
-    /* Crop/scale the image to fit */
-    border-radius: 8px;
-    /* Optional: Add rounded corners */
 }
