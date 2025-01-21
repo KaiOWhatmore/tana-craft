@@ -1,43 +1,25 @@
-.container {
+.carousel-container {
     display: flex;
-    /* Flexbox layout */
-    flex-direction: column;
-    /* Stack content vertically */
-    align-items: center;
-    /* Center align carousel and title */
     justify-content: center;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    width: 800px;
-    /* Allow full-width container */
+    align-items: center;
+    overflow: hidden;
 }
 
-.row {
-    /* display: grid; */
-    grid-template-columns: 1fr 1fr;
-
-    /* Use flexbox instead of grid */
-    flex-direction: column;
-    /* Ensure items are stacked vertically */
-    width: 100%;
-    /* Full width for the row */
-}
-
-.imageContainer {
+.carousel-item {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 800px;
-    /* Add a max width to prevent stretching */
-    position: relative;
-    margin: 0 auto;
+    /* Ensure each slide takes full container width */
 }
 
-.slider-container {
+.carousel-item img {
     width: 100%;
-    max-width: 800px;
-    /* Restrict the carousel width */
-    margin: 0 auto;
-    /* Center carousel horizontally */
+    /* Ensure image fills the slide width */
+    height: auto;
+    /* Maintain aspect ratio */
+    object-fit: cover;
+    /* Crop/scale the image to fit */
+    border-radius: 8px;
+    /* Optional: Add rounded corners */
 }
