@@ -1,9 +1,9 @@
 import React from "react"
-import SimpleSlider from "./SimpleSlider";
+import CustomSlides from "./CustomSlides";
 
 function RestorationPage() { 
     return (
-        <SimpleSlider/>
+        <CustomSlides/>
     );
 }
 

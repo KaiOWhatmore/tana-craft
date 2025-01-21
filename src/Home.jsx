@@ -5,7 +5,6 @@ import ImageDisplay from "./ImageDisplay";
 function Home() {
   return (
     <div className={styles.container}>
-      {/* Welcome Section */}
       <section className={styles.welcomeSection}>
       </section>
 

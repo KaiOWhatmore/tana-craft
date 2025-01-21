@@ -1,99 +1,42 @@
+/* General Container */
 .container {
-    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+    max-width: 1200px;
+    font-family: "Arial", sans-serif;
 }
 
-.furniturePageBanner {
-    text-align: center;
-}
-
-.header {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.subheader {
-    text-align: center;
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-
-.carousel {
+/* Welcome Section */
+.welcomeSection {
     display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    /* Allow horizontal scrolling */
-    padding: 10px 0;
-    scroll-behavior: smooth;
-    /* Smooth scrolling */
-}
-
-.carousel>* {
-    flex-shrink: 0;
-    /* Prevent images from shrinking */
-    /* Set a minimum width for images */
-    /* height: auto; */
-    /* Maintain aspect ratio */
-}
-
-.productImages {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding: 10px;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-
-.products {
-    display: grid;
-    gap: 0px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     width: 100%;
 }
 
-.product {
-    background: #fff;
-    margin: 20px;
+.welcomeSection h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* Content Section */
+.contentSection {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* Divide into two equal columns */
-    border: 1px solid #ddd;
-    padding: 20px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.productText {
-    margin: 20px;
-    padding: 20px;
-    /* Add padding for spacing */
-}
-
-
-/* Dummy Images */
-.productImage {
-    /* min-width: 150px; */
+    gap: 0;
     width: 100%;
-    /* height: 100px; */
-    position: relative;
-
-    background-color: #ccc;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-    border: 1px solid #aaa;
-    cursor: pointer;
-    font-size: 0.9rem;
-    user-select: none;
 }
-
 
 .imageContainer {
     display: flex;
@@ -103,84 +46,31 @@
     position: relative;
 }
 
-.dummyImage:hover {
-    background-color: #bbb;
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding: 40px;
 }
 
-.productTitle {
-    font-size: 1.2rem;
+.textContainer h2 {
+    font-size: 2rem;
     font-weight: bold;
-    margin-top: 15px;
 }
 
-.productDescription {
+.textContainer p {
     font-size: 1rem;
-    color: #555;
-    margin-top: 10px;
+    line-height: 1.5;
+    margin: 10px 0;
 }
 
-/* Modal */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
+.link {
+    color: #0073e6;
+    text-decoration: none;
 }
 
-.modalContent {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 80%;
-    max-height: 80%;
-    overflow-y: auto;
-    position: relative;
-    text-align: center;
-}
-
-.modalImage {
-    width: 200px;
-    height: 150px;
-    background-color: #ccc;
-    margin: 10px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #333;
-    font-size: 1rem;
-    border: 1px solid #aaa;
-}
-
-.closeButton {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #f00;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-/* Responsive Carousel for Wide Content */
-@media (max-width: 768px) {
-    .product {
-        grid-template-columns: 1fr;
-        /* Stack text and images vertically */
-    }
-
-    .productImages {
-        overflow-x: auto;
-        /* Enable horizontal scrolling */
-        max-width: 50%;
-    }
+.link:hover {
+    text-decoration: underline;
 }
