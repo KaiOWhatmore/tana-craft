@@ -31,7 +31,7 @@ const FurniturePage = () => {
           </p>
         </div>
         <div className={styles.carouselColumn}>
-          <FloatingBookshelfImageCarousel aspectRatio={"9:16"} />
+          <FloatingBookshelfImageCarousel  />
         </div>
       </div>
 
