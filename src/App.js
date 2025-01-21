@@ -5,6 +5,9 @@ import Home from './Home'
 import { Routes, Route } from 'react-router-dom';
 import ContactForm from './ContactForm';
 import FurniturePage from './FurniturePage';
+import RestorationPage from './RestorationPage';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 function App() {
@@ -16,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/furniture" element={<FurniturePage />} />
           <Route path="/contact" element={<ContactForm />} />
+          <Route path="/restoration" element={<RestorationPage />} />
           {/* Fallback Route */}
           <Route
             path="*"

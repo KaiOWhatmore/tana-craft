@@ -5,6 +5,10 @@
     font-family: Arial, sans-serif;
 }
 
+.furniturePageBanner {
+    text-align: center;
+}
+
 .header {
     text-align: center;
     font-size: 2rem;
@@ -21,9 +25,29 @@
     display: flex;
     gap: 10px;
     overflow-x: auto;
+    /* Allow horizontal scrolling */
     padding: 10px 0;
     scroll-behavior: smooth;
+    /* Smooth scrolling */
 }
+
+.carousel>* {
+    flex-shrink: 0;
+    /* Prevent images from shrinking */
+    /* Set a minimum width for images */
+    /* height: auto; */
+    /* Maintain aspect ratio */
+}
+
+.productImages {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
 
 .products {
     display: grid;
@@ -50,19 +74,6 @@
     /* Add padding for spacing */
 }
 
-.productImages {
-    display: flex;
-    gap: 10px;
-    /* Space between images */
-    overflow-x: auto;
-    /* Enable horizontal scrolling */
-    padding: 10px;
-    scroll-behavior: smooth;
-    /* Smooth scrolling for carousel effect */
-    justify-content: flex-start;
-    /* Align images to the left */
-    box-sizing: border-box;
-}
 
 /* Dummy Images */
 .productImage {
