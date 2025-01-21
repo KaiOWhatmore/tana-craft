@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [imageAspectRatio, setImageAspectRatio] = useState(null);
 
   const [width, height] = aspectRatio.split(":").map(Number);
   const paddingTop = (height / width) * 100;
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = `/images/${fileName}`;
+    img.onload = () => {
+      const imgAspectRatio = img.naturalWidth / img.naturalHeight;
+      setImageAspectRatio(imgAspectRatio);
+    };
+  }, [fileName]);
+
+  const isTransformed = imageAspectRatio && imageAspectRatio !== width / height;
 
   return (
     <div
@@ -13,10 +25,28 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
         height: 0,
         paddingTop: `${paddingTop}%`,
         position: "relative",
-        backgroundColor: "#e0e0e0", // Background for the container
-        overflow: "hidden", // Ensures image doesn't spill out
+        overflow: "hidden",
       }}
     >
+      {/* Background layer for blur effect */}
+      {isTransformed && (
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundImage: `url(/images/${fileName})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: "blur(4px) brightness(0.65)",
+            zIndex: 1,
+          }}
+        />
+      )}
+
+      {/* Main image */}
       <img
         src={`/images/${fileName}`}
         alt={fileName}
@@ -28,12 +58,14 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
           transform: "translate(-50%, -50%)",
           maxHeight: "100%",
           maxWidth: "100%",
-          objectFit: "contain", // Ensures the entire image fits
+          objectFit: "contain",
           opacity: isLoaded ? 1 : 0,
           transition: "opacity 0.5s ease-in-out",
-          backgroundColor: "#f0f0f0", // Grey background for image itself
+          zIndex: 2,
         }}
       />
+
+      {/* Loading placeholder */}
       {!isLoaded && (
         <div
           style={{
@@ -42,7 +74,8 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundColor: "#d0d0d0", // Loading placeholder
+            backgroundColor: "#d0d0d0",
+            zIndex: 2,
           }}
         />
       )}
