@@ -74,10 +74,17 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundColor: "#d0d0d0",
-            zIndex: 2,
+            backgroundColor: "#d0d0d0", // Grey placeholder background
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#808080", // Text color
+            fontSize: "1.2rem",
+            fontWeight: "bold",
           }}
-        />
+        >
+          Loading Image...
+        </div>
       )}
     </div>
   );
