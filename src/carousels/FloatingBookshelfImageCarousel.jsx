@@ -1,14 +1,14 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import ImageDisplay from "./ImageDisplay";
+import ImageDisplay from "../ImageDisplay";
 
 const responsive = {
   allDevices: { breakpoint: { max: 4000, min: 0 }, items: 1 },
 };
 
 
-const ModernaImageCarousel = ({ image, aspectRatio = "4:3" }) => {
+const FloatingBookshelfImageCarousel = ({ image, aspectRatio = "4:3" }) => {
   return (
     <div
       style={{
@@ -28,20 +28,17 @@ const ModernaImageCarousel = ({ image, aspectRatio = "4:3" }) => {
       >
         {/* Pass the single image into the carousel */}
         <div key={image} style={{ marginBottom: "30px", marginTop: "30px"}}>
-          <ImageDisplay fileName={"moderna_x_saisho-table-home-banner.jpg"} aspectRatio={aspectRatio} />
+          <ImageDisplay fileName={"floating_bookshelf_PXL_20241024_235951628.jpg"} aspectRatio={aspectRatio} />
         </div>
         <div key={image} style={{ marginBottom: "30px", marginTop: "30px"}}>
-          <ImageDisplay fileName={"moderna_x_PXL_20241223_081506152.MP.jpg"} aspectRatio={aspectRatio} />
+          <ImageDisplay fileName={"floating_book_PXL_20241031_222813300.jpg"} aspectRatio={aspectRatio} />
         </div>
         <div key={image} style={{ marginBottom: "30px", marginTop: "30px"}}>
-          <ImageDisplay fileName={"moderna_x_PXL_20241223_081435391.MP.jpg"} aspectRatio={aspectRatio} />
-        </div>
-        <div key={image} style={{ marginBottom: "30px", marginTop: "30px"}}>
-          <ImageDisplay fileName={"moderna_x_PXL_20241223_081413147.jpg"} aspectRatio={aspectRatio} />
+          <ImageDisplay fileName={"floating_bok_PXL_20241101_200417179.jpg"} aspectRatio={aspectRatio} />
         </div>
       </Carousel>
     </div>
   );
 };
 
-export default ModernaImageCarousel;
+export default FloatingBookshelfImageCarousel;
