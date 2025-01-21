@@ -17,7 +17,6 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
         overflow: "hidden", // Ensures image doesn't spill out
       }}
     >
-      {/* Image Element */}
       <img
         src={`/images/${fileName}`}
         alt={fileName}
@@ -32,10 +31,9 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
           objectFit: "contain", // Ensures the entire image fits
           opacity: isLoaded ? 1 : 0,
           transition: "opacity 0.5s ease-in-out",
+          backgroundColor: "#f0f0f0", // Grey background for image itself
         }}
       />
-
-      {/* Loading Placeholder */}
       {!isLoaded && (
         <div
           style={{
@@ -44,17 +42,9 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundColor: "#d0d0d0", // Grey placeholder background
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#808080", // Text color
-            fontSize: "1.2rem",
-            fontWeight: "bold",
+            backgroundColor: "#d0d0d0", // Loading placeholder
           }}
-        >
-          Loading Image...
-        </div>
+        />
       )}
     </div>
   );

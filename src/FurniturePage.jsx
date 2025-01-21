@@ -3,7 +3,7 @@ import styles from "./FurniturePage.module.css";
 import ModernaImageCarousel from "./carousels/ModernaImageImageCarousel";
 import FloatingBookshelfImageCarousel from "./carousels/FloatingBookshelfImageCarousel";
 import ButchersBlockImageCarousel from "./carousels/ButchersBlockImageCarousel";
-import VanDrawersImageCarousel from "./carousels/ButchersBlockImageCarousel"
+import VanDrawersImageCarousel from "./carousels/VanDrawersImageCarousel"
 
 const FurniturePage = () => {
   return (
@@ -59,7 +59,7 @@ const FurniturePage = () => {
           </p>
         </div>
         <div className={styles.carouselColumn}>
-          <VanDrawersImageCarousel  />
+        <VanDrawersImageCarousel  />
         </div>
       </div>
     </div>
