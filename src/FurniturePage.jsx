@@ -3,13 +3,26 @@ import styles from "./FurniturePage.module.css";
 import ModernaImageCarousel from "./carousels/ModernaImageImageCarousel";
 import FloatingBookshelfImageCarousel from "./carousels/FloatingBookshelfImageCarousel";
 import ButchersBlockImageCarousel from "./carousels/ButchersBlockImageCarousel";
-import VanDrawersImageCarousel from "./carousels/VanDrawersImageCarousel"
+import VanDrawersImageCarousel from "./carousels/VanDrawersImageCarousel";
 
 const FurniturePage = () => {
+  const bannerStyle = {
+    backgroundImage: `url('/images/furniture-banner.avif')`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
+
   return (
+    <div>
+    {/* Banner Section */}
+      <div className={styles.banner} style={bannerStyle}>
+        <div className={styles.bannerContent}>
+          <h1 style={{ letterSpacing: "0.05rem" }}>Choose sustainable, locally made furniture to suit your needs</h1>
+          <p style={{ fontSize: '22px', letterSpacing: "0.05rem" }}>Tired of mass produced furniture? Browse our products that will last generations.</p>
+        </div>
+    </div>
     <div className={styles.container}>
-      <h1 className={styles.header}>Welcome to Tana Craft</h1>
-      
+
       {/* Moderna Coffee Table */}
       <div className={styles.row}>
         <div className={styles.textColumn}>
@@ -21,7 +34,11 @@ const FurniturePage = () => {
         <div className={styles.carouselColumn}>
           <ModernaImageCarousel aspectRatio={"4:3"} />
         </div>
+        {/* <hr style={{ border: "0", borderTop: "10px solid black", margin: "20px 0" }} /> */}
       </div>
+
+      <hr style={{ border: "0", borderTop: "1px solid #ccc", margin: "20px 0", width: "95%" }} />
+
 
       {/* Floating Bookshelf */}
       <div className={styles.row}>
@@ -32,9 +49,12 @@ const FurniturePage = () => {
           </p>
         </div>
         <div className={styles.carouselColumn}>
-          <FloatingBookshelfImageCarousel  />
+          <FloatingBookshelfImageCarousel />
         </div>
       </div>
+
+      <hr style={{ border: "0", borderTop: "1px solid #ccc", margin: "20px 0", width: "95%" }} />
+
 
       {/* Butcher's Block */}
       <div className={styles.row}>
@@ -49,6 +69,9 @@ const FurniturePage = () => {
         </div>
       </div>
 
+      <hr style={{ border: "0", borderTop: "1px solid #ccc", margin: "20px 0", width: "95%" }} />
+
+
       {/* Rear Van Drawers */}
       <div className={styles.row}>
         <div className={styles.textColumn}>
@@ -59,9 +82,10 @@ const FurniturePage = () => {
           </p>
         </div>
         <div className={styles.carouselColumn}>
-        <VanDrawersImageCarousel  />
+          <VanDrawersImageCarousel />
         </div>
       </div>
+    </div>
     </div>
   );
 };

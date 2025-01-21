@@ -6,8 +6,6 @@ import GreenToolBoxImageCarousel from "./carousels/GreenToolBoxImageCarousel";
 const RestorationPage = () => {
   return (
     <div className={styles.container}>
-      <h1 className={styles.header}>Welcome to Tana Craft</h1>
-      
       {/* Moderna Coffee Table */}
       <div className={styles.row}>
         <div className={styles.textColumn}>
