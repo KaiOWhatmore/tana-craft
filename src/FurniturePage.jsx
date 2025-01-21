@@ -48,8 +48,8 @@ const FurniturePage = () => {
       <div className={styles.row}>
         {/* Left Column (Text) */}
         <div className={styles.textColumn}>
-          <h2 className={styles.title}>Butchers Block</h2>
-          <p className={styles.description}>Locally sourced mountain ash.  Ideal for the avid cook.  Treated with food safe tung oil and citrus mineral oils </p>
+          <h2 className={styles.title}>Rear Van Drawers</h2>
+          <p className={styles.description}>Secured with industrial drawer slides and birch plywood.  Right hand drawers can act as work bench with storage units.  Left hand drawer slides provided plenty of space for the intrepid van owner.  </p>
         </div>
 
         {/* Right Column (Carousel) */}
