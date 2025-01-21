@@ -20,15 +20,6 @@
     margin-bottom: -70px;
 }
 
-.bannerContent {
-    /* background: rgba(0, 0, 0, 0.5); */
-    position: absolute;
-    /* Position the overlay absolutely within the banner */
-    /* height: 100%; */
-    /* width: 100%;
-    padding: 20px; */
-    /* border-radius: 8px; */
-}
 
 .header {
     font-size: 2rem;
@@ -41,8 +32,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 0;
     width: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 .carouselColumn {

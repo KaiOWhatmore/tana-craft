@@ -20,6 +20,8 @@ const RestorationPage = () => {
         </div>
       </div>
 
+      <hr style={{ border: "0", borderTop: "1px solid #ccc", margin: "20px 0", width: "95%" }} />
+
       <div className={styles.row}>
         <div className={styles.textColumn}>
           <h2 className={styles.title}>Rota Green Toolbox</h2>
