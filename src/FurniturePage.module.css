@@ -1,0 +1,175 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.subheader {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.carousel {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 0;
+    scroll-behavior: smooth;
+}
+
+.products {
+    display: grid;
+    gap: 0px;
+    width: 100%;
+}
+
+.product {
+    background: #fff;
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Divide into two equal columns */
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.productText {
+    margin: 20px;
+    padding: 20px;
+    /* Add padding for spacing */
+}
+
+.productImages {
+    display: flex;
+    gap: 10px;
+    /* Space between images */
+    overflow-x: auto;
+    /* Enable horizontal scrolling */
+    padding: 10px;
+    scroll-behavior: smooth;
+    /* Smooth scrolling for carousel effect */
+    justify-content: flex-start;
+    /* Align images to the left */
+    box-sizing: border-box;
+}
+
+/* Dummy Images */
+.productImage {
+    /* min-width: 150px; */
+    width: 100%;
+    /* height: 100px; */
+    position: relative;
+
+    background-color: #ccc;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    font-size: 0.9rem;
+    user-select: none;
+}
+
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.dummyImage:hover {
+    background-color: #bbb;
+}
+
+.productTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.productDescription {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 80%;
+    max-height: 80%;
+    overflow-y: auto;
+    position: relative;
+    text-align: center;
+}
+
+.modalImage {
+    width: 200px;
+    height: 150px;
+    background-color: #ccc;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    font-size: 1rem;
+    border: 1px solid #aaa;
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #f00;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Responsive Carousel for Wide Content */
+@media (max-width: 768px) {
+    .product {
+        grid-template-columns: 1fr;
+        /* Stack text and images vertically */
+    }
+
+    .productImages {
+        overflow-x: auto;
+        /* Enable horizontal scrolling */
+        max-width: 50%;
+    }
+}

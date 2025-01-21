@@ -4,6 +4,7 @@ import NavBar from './Navbar';
 import Home from './Home'
 import { Routes, Route } from 'react-router-dom';
 import ContactForm from './ContactForm';
+import FurniturePage from './FurniturePage';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/furniture" element={<FurniturePage />} />
           <Route path="/contact" element={<ContactForm />} />
           {/* Fallback Route */}
           <Route

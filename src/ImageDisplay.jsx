@@ -19,7 +19,10 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
       <img
         src={`/images/${fileName}`} // Use relative path
         alt={fileName}
-        onLoad={() => setIsLoaded(true)}
+        onLoad={() => {
+          console.log("Image loaded:", fileName); // Debugging log
+          setIsLoaded(true); // Mark image as loaded
+        }}        
         style={{
           position: "absolute",
           top: 0,
