@@ -14,7 +14,7 @@ function Home() {
             <h1>Welcome to Tana Craft.</h1>
           </div>
           <div className={styles.imageContainer}>
-          <ImageDisplay fileName="chopsticks-whittled.jpg" aspectRatio="4:3"/> 
+            <ImageDisplay fileName="chopsticks-whittled.jpg" aspectRatio="4:3"/> 
           </div>
         </div>
 

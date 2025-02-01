@@ -12,6 +12,7 @@
     display: flex;
     align-items: center;
     /* Vertically centers items */
+    justify-content: space-between;
     justify-content: center;
     /* Center links horizontally */
     padding: 0 20px;
@@ -52,10 +53,11 @@
     gap: 100px;
     /* Adds spacing between links */
     list-style: none;
-    padding-left: 100px;
-    /* Adds space to the right */
-    margin: 0;
-    /* padding: 0; */
+    margin-left: 5%
+        /* padding-left: 50px; */
+        /* Adds space to the right */
+        /* margin-right: 11%; */
+        /* padding: 0; */
 }
 
 .navbarLink {
@@ -65,7 +67,7 @@
     letter-spacing: 0.1rem;
     text-decoration: none;
     color: white;
-    padding: 10px 45px;
+    padding: 10px 30px;
     /* border-radius: 4px; */
     transition: background-color 0.3s ease;
 }
@@ -80,24 +82,74 @@
     /* Active link background */
 }
 
+/* Hamburger styles - hidden on desktop */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    margin-left: auto;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    margin-right: 5%;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 3px;
+}
+
+
+
+/* Mobile styles */
 @media (max-width: 768px) {
-    .navbar {
-        height: auto;
-        /* Let it expand */
-        flex-direction: column;
-        padding: 10px;
+
+    /* Show hamburger icon */
+    .hamburger {
+        display: flex;
     }
 
-    .navbarLogo {
-        position: relative;
-        /* Remove absolute positioning */
-        left: 0;
-        margin-bottom: 10px;
-    }
-
+    /* Hide normal nav links by default */
     .navbarLinks {
+        /* Remove or reduce the line-height if it's not needed */
+        line-height: 1.2rem;
+        /* Lower line-height for tighter spacing */
+        display: none;
+        position: absolute;
+        opacity: 0.97;
+        top: 100%;
+        left: 0;
+        right: 0;
         flex-direction: column;
-        gap: 10px;
-        padding-left: 0;
+        justify-content: flex-start;
+        background-color: #2e2d2d;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* When the menu is open, display the links */
+    .navbarLinks.open {
+        margin: 0;
+        padding-top: 50px;
+        /* Reduced from 50px for less extra spacing */
+        display: flex;
+        padding-bottom: 50px;
+    }
+
+    /* Adjust nav items for mobile */
+    .navbarItem {
+        padding: 1px 20px;
+        /* Lower the vertical padding */
+        margin: 0;
+        /* Ensure no extra margins */
+        text-align: center;
+    }
+
+    .navbarLink {
+        height: auto;
+        font-size: 2rem;
     }
 }
