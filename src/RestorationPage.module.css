@@ -1,3 +1,5 @@
+/* RestorationPage.module.css */
+
 .container {
     display: flex;
     flex-direction: column;
@@ -51,4 +53,26 @@
     justify-content: center;
     align-items: center;
 
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%;
+        padding: 0 10px;
+    }
+
+    .row {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        margin: 20px 0;
+    }
+
+    .carouselColumn,
+    .textColumn {
+        width: 100%;
+    }
+
+    .textColumn {
+        padding: 10px;
+    }
 }

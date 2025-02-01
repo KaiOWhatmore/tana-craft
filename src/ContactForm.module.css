@@ -96,3 +96,16 @@
 .submitButton:hover {
     background-color: #2e2d2d9d;
 }
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Optional: adjust input font sizes or paddings if needed */
+}

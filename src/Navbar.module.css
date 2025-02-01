@@ -1,3 +1,5 @@
+/* Navbar.module.css */
+
 .navbar {
     position: sticky;
     /* Use sticky positioning */
@@ -76,4 +78,26 @@
 .activeLink {
     background-color: #3d3d3d;
     /* Active link background */
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        height: auto;
+        /* Let it expand */
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .navbarLogo {
+        position: relative;
+        /* Remove absolute positioning */
+        left: 0;
+        margin-bottom: 10px;
+    }
+
+    .navbarLinks {
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 0;
+    }
 }
