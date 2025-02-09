@@ -7,6 +7,15 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
   const [width, height] = aspectRatio.split(":").map(Number);
   const paddingTop = (height / width) * 100;
 
+  const isSmallImage = (fileName) => {
+    // Remove the extension (everything after the last dot)
+    const baseName = fileName.substring(0, fileName.lastIndexOf('.'));
+    console.log(fileName)
+    console.log(baseName.endsWith('_small'))
+    return baseName.endsWith('_small');
+  };
+  
+
   const handleImageLoad = (e) => {
     const img = e.target;
     const imgAspectRatio = img.naturalWidth / img.naturalHeight;
@@ -26,6 +35,11 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
         overflow: "hidden",
       }}
     >
+      {/* Show a spinner or placeholder while the image is loading */}
+      {!isLoaded && isSmallImage(fileName) && (
+          <img src={`/images-copy/${fileName}`} alt="Loading..." />
+      )}
+
       {/* Background layer for blur effect */}
       {isTransformed && (
         <div
@@ -58,8 +72,8 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
           maxHeight: "100%",
           maxWidth: "100%",
           objectFit: "contain",
-          opacity: isLoaded ? 1 : 0,
-          transition: "opacity 0.5s ease-in-out",
+          // opacity: isLoaded ? 1 : 0,
+          // transition: "opacity 0.5s ease-in-out",
           zIndex: 2,
         }}
       />
