@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -7,14 +7,12 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
   const [width, height] = aspectRatio.split(":").map(Number);
   const paddingTop = (height / width) * 100;
 
-  useEffect(() => {
-    const img = new Image();
-    img.src = `/images/${fileName}`;
-    img.onload = () => {
-      const imgAspectRatio = img.naturalWidth / img.naturalHeight;
-      setImageAspectRatio(imgAspectRatio);
-    };
-  }, [fileName]);
+  const handleImageLoad = (e) => {
+    const img = e.target;
+    const imgAspectRatio = img.naturalWidth / img.naturalHeight;
+    setImageAspectRatio(imgAspectRatio);
+    setIsLoaded(true);
+  };
 
   const isTransformed = imageAspectRatio && imageAspectRatio !== width / height;
 
@@ -50,7 +48,8 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
       <img
         src={`/images/${fileName}`}
         alt={fileName}
-        onLoad={() => setIsLoaded(true)}
+        loading="lazy"
+        onLoad={handleImageLoad}
         style={{
           position: "absolute",
           top: "50%",
@@ -64,28 +63,6 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
           zIndex: 2,
         }}
       />
-
-      {/* Loading placeholder */}
-      {!isLoaded && (
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "#d0d0d0", // Grey placeholder background
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#808080", // Text color
-            fontSize: "1.2rem",
-            fontWeight: "bold",
-          }}
-        >
-          Loading Image...
-        </div>
-      )}
     </div>
   );
 }

@@ -80,6 +80,10 @@
         margin-bottom: 20px;
     }
 
+    .bannerContent {
+        padding: 30px;
+    }
+
     .row {
         grid-template-columns: 1fr;
         flex-direction: column;
