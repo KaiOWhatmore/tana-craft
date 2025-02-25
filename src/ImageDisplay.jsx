@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from './ImageDisplay.module.css'; 
 
 function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -27,6 +28,7 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
 
   return (
     <div 
+      className={`${!isLoaded ? styles.loadingPulse : ''}`}
       style={{
         aspectRatio: `${aspectRatio}`,
         width: "100%",
@@ -38,9 +40,7 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
         backgroundRepeat: "no-repeat", 
         backgroundSize: "cover",
         backgroundPosition: "center",
-        filter: isLoaded ? "none" : "blur(6px) ",
-        // filter: "blur(10px)"
-        // filter: "blur(10px) brightness(0.65)",
+        // filter: isLoaded ? "none" : "blur(6px)",
       }}
     >
 

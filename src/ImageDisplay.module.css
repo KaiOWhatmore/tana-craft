@@ -1,0 +1,20 @@
+@keyframes pulse {
+    0% {
+        opacity: 0.80;
+        filter: hue-rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        filter: hue-rotate(10deg);
+    }
+
+    100% {
+        opacity: 0.80;
+        filter: hue-rotate(0deg);
+    }
+}
+
+.loadingPulse {
+    animation: pulse 2s ease-in-out infinite;
+}
