@@ -7,12 +7,12 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
   const [width, height] = aspectRatio.split(":").map(Number);
   const paddingTop = (height / width) * 100;
 
-  const isSmallImage = (fileName) => {
+  const smallFileNameVersion = (fileName) => {
     // Remove the extension (everything after the last dot)
     const baseName = fileName.substring(0, fileName.lastIndexOf('.'));
-    console.log(fileName)
-    console.log(baseName.endsWith('_small'))
-    return baseName.endsWith('_small');
+    const smallSuffix = "_small.jpg"
+    console.log(baseName + smallSuffix)
+    return baseName + smallSuffix;
   };
   
 
@@ -26,19 +26,23 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
   const isTransformed = imageAspectRatio && imageAspectRatio !== width / height;
 
   return (
-    <div
+    <div 
       style={{
+        aspectRatio: `${aspectRatio}`,
         width: "100%",
         height: 0,
         paddingTop: `${paddingTop}%`,
         position: "relative",
         overflow: "hidden",
+        backgroundImage: `url(/images/${smallFileNameVersion(fileName)})`,
+        backgroundRepeat: "no-repeat", 
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        filter: isLoaded ? "none" : "blur(6px) ",
+        // filter: "blur(10px)"
+        // filter: "blur(10px) brightness(0.65)",
       }}
     >
-      {/* Show a spinner or placeholder while the image is loading */}
-      {!isLoaded && isSmallImage(fileName) && (
-          <img src={`/images-copy/${fileName}`} alt="Loading..." />
-      )}
 
       {/* Background layer for blur effect */}
       {isTransformed && (
@@ -72,8 +76,8 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
           maxHeight: "100%",
           maxWidth: "100%",
           objectFit: "contain",
-          // opacity: isLoaded ? 1 : 0,
-          // transition: "opacity 0.5s ease-in-out",
+          opacity: isLoaded ? 1 : 0,
+          transition: "opacity 0.5s ease-in-out",
           zIndex: 2,
         }}
       />
