@@ -40,7 +40,6 @@ function ImageDisplay({ fileName, aspectRatio = "4:3" }) {
         backgroundRepeat: "no-repeat", 
         backgroundSize: "cover",
         backgroundPosition: "center",
-        // filter: isLoaded ? "none" : "blur(6px)",
       }}
     >
 
