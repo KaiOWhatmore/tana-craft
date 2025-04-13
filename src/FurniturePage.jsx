@@ -5,6 +5,7 @@ import FloatingBookshelfImageCarousel from "./carousels/FloatingBookshelfImageCa
 import ButchersBlockImageCarousel from "./carousels/ButchersBlockImageCarousel";
 import VanDrawersImageCarousel from "./carousels/VanDrawersImageCarousel";
 import KodoTableCarousel from "./carousels/KodoTableCarousel";
+import BBVanCarousel from "./carousels/BBVanCarousel";
 
 const FurniturePage = () => {
   const bannerStyle = {
@@ -40,6 +41,7 @@ const FurniturePage = () => {
 
       <hr style={{ border: "0", borderTop: "1px solid #ccc", margin: "20px 0", width: "95%" }} />
       
+
       {/* Kodo Coffee Table */}
       <div className={styles.row}>
         <div className={styles.textColumn}>
@@ -50,6 +52,23 @@ const FurniturePage = () => {
         </div>
         <div className={styles.carouselColumn}>
           <KodoTableCarousel aspectRatio={"4:3"} />
+        </div>
+        {/* <hr style={{ border: "0", borderTop: "10px solid black", margin: "20px 0" }} /> */}
+      </div>
+
+      <hr style={{ border: "0", borderTop: "1px solid #ccc", margin: "20px 0", width: "95%" }} />
+
+
+       {/* BB Van */}
+       <div className={styles.row}>
+        <div className={styles.textColumn}>
+          <h2 className={styles.title}>"BB" Renault Trafic Van Build</h2>
+          <p className={styles.description}>
+            Renault Trafic built for weekend getaways, long term road trips or the permanent van lifer.  Kitted out with rear drawers, side cupboards, overhead cabinets, fridge and inverter.  Rock and roll bed allows full recline or sofa setup. 
+          </p>
+        </div>
+        <div className={styles.carouselColumn}>
+          <BBVanCarousel aspectRatio={"4:3"} />
         </div>
         {/* <hr style={{ border: "0", borderTop: "10px solid black", margin: "20px 0" }} /> */}
       </div>

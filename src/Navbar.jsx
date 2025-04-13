@@ -36,7 +36,7 @@ function NavBar() {
           <Link to="/" className={styles.navbarLink}>Home</Link>
         </li>
         <li className={styles.navbarItem} onClick={closeMenu}>
-          <Link to="/furniture" className={styles.navbarLink}>Furniture</Link>
+          <Link to="/furniture" className={styles.navbarLink}>Portfolio</Link>
         </li>
         <li className={styles.navbarItem} onClick={closeMenu}>
           <Link to="/restoration" className={styles.navbarLink}>Restoration</Link>
