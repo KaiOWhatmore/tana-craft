@@ -4,6 +4,7 @@ import ModernaImageCarousel from "./carousels/ModernaImageImageCarousel";
 import FloatingBookshelfImageCarousel from "./carousels/FloatingBookshelfImageCarousel";
 import ButchersBlockImageCarousel from "./carousels/ButchersBlockImageCarousel";
 import VanDrawersImageCarousel from "./carousels/VanDrawersImageCarousel";
+import KodoTableCarousel from "./carousels/KodoTableCarousel";
 
 const FurniturePage = () => {
   const bannerStyle = {
@@ -26,13 +27,29 @@ const FurniturePage = () => {
       {/* Moderna Coffee Table */}
       <div className={styles.row}>
         <div className={styles.textColumn}>
-          <h2 className={styles.title}>Moderna Coffee Table</h2>
+          <h2 className={styles.title}>Oka Coffee Table</h2>
           <p className={styles.description}>
             Mountain Ash hardwood with tapered legs. Treated with hard wax oil and Carnauba wax buffed to a mirror finish.
           </p>
         </div>
         <div className={styles.carouselColumn}>
           <ModernaImageCarousel aspectRatio={"4:3"} />
+        </div>
+        {/* <hr style={{ border: "0", borderTop: "10px solid black", margin: "20px 0" }} /> */}
+      </div>
+
+      <hr style={{ border: "0", borderTop: "1px solid #ccc", margin: "20px 0", width: "95%" }} />
+      
+      {/* Kodo Coffee Table */}
+      <div className={styles.row}>
+        <div className={styles.textColumn}>
+          <h2 className={styles.title}>The Kodo Table</h2>
+          <p className={styles.description}>
+            Reclaimed mountain ash and Tasmanian oak from a winery, built with dressed aprons and matching legs.  Hardwax, buffed and polished finish.  Ideal addition for any lounge or living room.
+          </p>
+        </div>
+        <div className={styles.carouselColumn}>
+          <KodoTableCarousel aspectRatio={"4:3"} />
         </div>
         {/* <hr style={{ border: "0", borderTop: "10px solid black", margin: "20px 0" }} /> */}
       </div>
