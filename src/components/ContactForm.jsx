@@ -32,7 +32,7 @@ const ContactForm = () => {
     try {
       // Replace with your Firebase Function URL
       const functionUrl =
-        "https://us-central1-tana-craft-9adcf.cloudfunctions.net/sendEmail";
+        "https://sendemail-dqksttu4gq-uc.a.run.app";
 
       const response = await fetch(functionUrl, {
         method: "POST",
