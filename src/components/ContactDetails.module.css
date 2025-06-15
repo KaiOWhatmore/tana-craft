@@ -1,0 +1,32 @@
+/* ContactDetails.module.css */
+
+.contactDetails {
+    align-self: flex-start;
+    margin-top: 15%;
+    display: flex;
+    margin-right: 100px;
+    justify-content: flex-start;
+    /* push children to the left */
+    align-items: flex-start;
+    /* top-align if you had multiple rows */
+    /* remove that second justify-content */
+}
+
+.contactFields {
+    color: #2e2d2d;
+    list-style: none;
+    margin: 0;
+    /* kill default ul margins */
+    padding: 0;
+    /* kill default ul padding/indent */
+    text-align: left;
+    /* ensure text inside is left-aligned */
+}
+
+.contactValues {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-family: 'Arial', sans-serif;
+    /* margin: 0.5rem 0; */
+    /* vertical spacing only */
+}

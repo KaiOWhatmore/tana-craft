@@ -33,6 +33,12 @@
       {
         "source": "/images/**",
         "destination": "https://firebasestorage.googleapis.com/v0/b/your-bucket/o/public/**"
+      },
+      {
+        "source": "/api/sendEmail",
+        "function": "sendEmail",
+        "region": "us-central1",
+        "codebase": "default"
       }
     ]
   },

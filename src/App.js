@@ -8,6 +8,7 @@ import FurniturePage from './pages/FurniturePage';
 import RestorationPage from './pages/RestorationPage';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ContactPage from './pages/ContactPage';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/furniture" element={<FurniturePage />} />
-          <Route path="/contact" element={<ContactForm />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/restoration" element={<RestorationPage />} />
           {/* Fallback Route */}
           <Route

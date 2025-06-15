@@ -1,0 +1,23 @@
+/* ContactPage.module.css */
+.container {
+    display: flex;
+    /* side-by-side */
+    justify-content: center;
+    /* centre the pair horizontally */
+    align-items: center;
+    /* centre vertically in viewport */
+    gap: 2rem;
+    /* space between details & form */
+
+    width: 100%;
+    /* allow it to shrink on small screens */
+    max-width: 1200px;
+    /* 👈 don’t forget the “px” */
+    margin: 0 auto;
+    /* 👈 horizontally centre the container itself */
+
+    padding: 0 1rem;
+    /* side padding so it never hugs the window */
+    min-height: 100vh;
+    /* full-height for vertical centring */
+}
