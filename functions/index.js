@@ -42,10 +42,11 @@ exports.sendEmail = onRequest(
 
             try {
                 await transporter.sendMail({
-                    from: `"Site Contact" <${email}>`,
+                    from: `"TANACRAFT ENQUIRY" <${email}>`,
+                    replyTo: email,
                     to: "tanacwoodwork@gmail.com",
-                    subject: `New message from ${firstName} ${lastName}`,
-                    text: `${message}\n\nPhone: ${phone}`,
+                    subject: `TANACRAFT message from ${firstName} ${lastName}`,
+                    text: `${message}\n\nPhone: ${phone}\n\nEmail: ${email}`,
                 });
                 res.json({ success: true });
             } catch (err) {
