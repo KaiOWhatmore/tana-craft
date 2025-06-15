@@ -1,40 +1,56 @@
-const logger = require("firebase-functions/logger");
+// functions/index.js
 const { onRequest } = require("firebase-functions/v2/https");
+const { defineString, defineSecret } = require("firebase-functions/params");
+const corsFactory = require("cors");
 const nodemailer = require("nodemailer");
-const cors = require("cors"); // Import CORS middleware
 
-// Initialize CORS middleware
-const corsHandler = cors({ origin: ["https://www.tanacraft.com", "http://localhost:3000"] });
+// define params/secrets
+const gmailAddr = defineString("GMAIL_ADDR");
+const gmailPass = defineSecret("GMAIL_PASS");
+
+// setup CORS
+const corsHandler = corsFactory({
+    origin: ["https://www.tanacraft.com", "http://localhost:3000"]
+});
 
 exports.sendEmail = onRequest(
-    { secrets: ["EMAIL_OUTLOOK_USER", "EMAIL_OUTLOOK_PASS"] }, // Declare secrets
-    (req, res) => {
-        // Use the CORS middleware
-        corsHandler(req, res, async () => {
-            const emailUser = process.env.EMAIL_OUTLOOK_USER; // Access the secret value
-            const emailPass = process.env.EMAIL_OUTLOOK_PASS;
+    { region: "us-central1", secrets: [gmailPass] },
+    async (req, res) => {
+        // handle preflight
+        if (req.method === "OPTIONS") {
+            res.set("Access-Control-Allow-Origin", "*");
+            res.set("Access-Control-Allow-Methods", "POST");
+            res.set("Access-Control-Allow-Headers", "Content-Type");
+            return res.status(204).end();
+        }
 
+        corsHandler(req, res, async () => {
+            if (req.method !== "POST") {
+                return res.status(405).send("Only POST allowed");
+            }
+
+            const { firstName, lastName, email, phone, message } = req.body;
+
+            // create transporter at runtime
             const transporter = nodemailer.createTransport({
-                service: "Outlook",
+                service: "Gmail",
                 auth: {
-                    user: emailUser,
-                    pass: emailPass,
+                    user: gmailAddr.value(),
+                    pass: gmailPass.value(),
                 },
             });
 
-            const { to, subject, text } = req.body;
-
             try {
                 await transporter.sendMail({
-                    from: emailUser,
-                    to,
-                    subject,
-                    text,
+                    from: `"Site Contact" <${email}>`,
+                    to: "tanacwoodwork@gmail.com",
+                    subject: `New message from ${firstName} ${lastName}`,
+                    text: `${message}\n\nPhone: ${phone}`,
                 });
-                res.status(200).send("Email sent successfully!");
-            } catch (error) {
-                console.error("Error sending email:", error);
-                res.status(500).send("Failed to send email");
+                res.json({ success: true });
+            } catch (err) {
+                console.error("Mail error", err);
+                res.status(500).json({ error: "Failed to send" });
             }
         });
     }
