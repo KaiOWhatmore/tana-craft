@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Home.module.css";
-import ImageDisplay from "./ImageDisplay";
+import ImageDisplay from "../components/ImageDisplay";
 
 function Home() {
   return (
@@ -14,13 +14,13 @@ function Home() {
             <h1>Welcome to Tana Craft.</h1>
           </div>
           <div className={styles.imageContainer}>
-            <ImageDisplay fileName="chopsticks-whittled.jpg" aspectRatio="4:3"/> 
+            <ImageDisplay fileName="chopsticks-whittled.jpg" aspectRatio="4:3" />
           </div>
         </div>
 
         <div className={styles.row}>
           <div className={styles.imageContainer}>
-            <ImageDisplay fileName="moderna_x_saisho-table-home-banner.jpg" aspectRatio="4:3"/> 
+            <ImageDisplay fileName="moderna_x_saisho-table-home-banner.jpg" aspectRatio="4:3" />
           </div>
           <div className={styles.textContainer}>
             <h2>What We Do</h2>

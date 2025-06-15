@@ -28,13 +28,13 @@ const FloatingBookshelfImageCarousel = ({ image, aspectRatio = "4:3" }) => {
         itemClass="carousel-item"
       >
         {/* Pass the single image into the carousel */}
-        <div key={image} style={{ marginBottom: "30px", marginTop: "30px"}}>
+        <div key={image} style={{ marginBottom: "30px", marginTop: "30px" }}>
           <ImageDisplay fileName={"floating_bookshelf_PXL_20241024_235951628.jpg"} aspectRatio={aspectRatio} />
         </div>
-        <div key={image} style={{ marginBottom: "30px", marginTop: "30px"}}>
+        <div key={image} style={{ marginBottom: "30px", marginTop: "30px" }}>
           <ImageDisplay fileName={"floating_book_PXL_20241031_222813300.jpg"} aspectRatio={aspectRatio} />
         </div>
-        <div key={image} style={{ marginBottom: "30px", marginTop: "30px"}}>
+        <div key={image} style={{ marginBottom: "30px", marginTop: "30px" }}>
           <ImageDisplay fileName={"floating_bok_PXL_20241101_200417179.jpg"} aspectRatio={aspectRatio} />
         </div>
       </Carousel>

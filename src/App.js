@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import NavBar from './Navbar';
-import Home from './Home'
+import NavBar from './components/Navbar';
+import Home from './pages/Home'
 import { Routes, Route } from 'react-router-dom';
-import ContactForm from './ContactForm';
-import FurniturePage from './FurniturePage';
-import RestorationPage from './RestorationPage';
+import ContactForm from './components/ContactForm';
+import FurniturePage from './pages/FurniturePage';
+import RestorationPage from './pages/RestorationPage';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 

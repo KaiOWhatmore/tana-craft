@@ -27,16 +27,16 @@ const ButchersBlockImageCarousel = ({ image, aspectRatio = "4:3" }) => {
         itemClass="carousel-item"
       >
         {/* Pass the single image into the carousel */}
-        <div key={image} style={{ marginBottom: "30px", marginTop: "30px"}}>
+        <div key={image} style={{ marginBottom: "30px", marginTop: "30px" }}>
           <ImageDisplay fileName={"butchers_PXL_20241223_082127790.jpg"} aspectRatio={aspectRatio} />
         </div>
-        <div key={image} style={{ marginBottom: "30px", marginTop: "30px"}}>
+        <div key={image} style={{ marginBottom: "30px", marginTop: "30px" }}>
           <ImageDisplay fileName={"butchers_PXL_20241223_082133298.jpg"} aspectRatio={aspectRatio} />
         </div>
-        <div key={image} style={{ marginBottom: "30px", marginTop: "30px"}}>
+        <div key={image} style={{ marginBottom: "30px", marginTop: "30px" }}>
           <ImageDisplay fileName={"butchers_PXL_20241223_082222354.jpg"} aspectRatio={aspectRatio} />
         </div>
-        <div key={image} style={{ marginBottom: "30px", marginTop: "30px"}}>
+        <div key={image} style={{ marginBottom: "30px", marginTop: "30px" }}>
           <ImageDisplay fileName={"butchers_PXL_20241223_082236456.jpg"} aspectRatio={aspectRatio} />
         </div>
       </Carousel>

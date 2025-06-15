@@ -5,15 +5,15 @@ import ImageDisplay from "../ImageDisplay";
 
 const responsive = {
   superLargeDesktop: { breakpoint: { max: 4000, min: 1920 }, items: 1 },
-  desktop:           { breakpoint: { max: 1920, min: 1024 }, items: 1 },
-  tablet:            { breakpoint: { max: 1024, min: 768  }, items: 1 },
-  mobile:            { breakpoint: { max: 768,  min: 0    }, items: 1 },
+  desktop: { breakpoint: { max: 1920, min: 1024 }, items: 1 },
+  tablet: { breakpoint: { max: 1024, min: 768 }, items: 1 },
+  mobile: { breakpoint: { max: 768, min: 0 }, items: 1 },
 };
 
 const ImageCarousel = ({ images, aspectRatio = "4:3" }) => {
-  const [open, setOpen]       = useState(false);
+  const [open, setOpen] = useState(false);
   const [current, setCurrent] = useState(0);
-  const touchStartX          = useRef(0);
+  const touchStartX = useRef(0);
 
   // record touch start X
   const onTouchStart = e => {
@@ -22,7 +22,7 @@ const ImageCarousel = ({ images, aspectRatio = "4:3" }) => {
   // detect swipe
   const onTouchEnd = e => {
     const dx = e.changedTouches[0].clientX - touchStartX.current;
-    if (dx > 50)  setCurrent(i => (i - 1 + images.length) % images.length);
+    if (dx > 50) setCurrent(i => (i - 1 + images.length) % images.length);
     if (dx < -50) setCurrent(i => (i + 1) % images.length);
   };
 
@@ -31,7 +31,7 @@ const ImageCarousel = ({ images, aspectRatio = "4:3" }) => {
     if (!open) return;
     const onKey = e => {
       if (e.key === "Escape") setOpen(false);
-      if (e.key === "ArrowLeft")  setCurrent(i => (i - 1 + images.length) % images.length);
+      if (e.key === "ArrowLeft") setCurrent(i => (i - 1 + images.length) % images.length);
       if (e.key === "ArrowRight") setCurrent(i => (i + 1) % images.length);
     };
     window.addEventListener("keydown", onKey);
@@ -98,7 +98,7 @@ const ImageCarousel = ({ images, aspectRatio = "4:3" }) => {
               position: "relative",
               width: "90vw",
               maxWidth: 800,
-              width: "95vw", 
+              width: "95vw",
               maxWidth: "none",   // let it grow wider
             }}
           >
